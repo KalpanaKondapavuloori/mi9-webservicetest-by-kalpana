@@ -14,16 +14,20 @@ app.use(bodyParser.text({
 app.post('/', function(request, response) {
     response.setHeader('Content-Type', 'application/json');
 
+    //validating & parsing request body
     var payload = request.body;
     try {
         payload = JSON.parse(request.body).payload;
     } catch (e) {
+        //returning 400 status with error message
         response.status(400);
         return response.send({error: 'Could not decode request: JSON parsing failed'});
     }
 
     var shows = [];
     if (payload) {
+        //instead of using json filters, custom filtering is added to validate attribute values for undefined case also
+        //for ex: In payload, if image attribute is undefined, showImage value cant be retrieved. (so more data validations has been added
         for (var i = 0; i < payload.length; i++) {
             //filter records based on criteria
             if (utils.isValidRecord(payload[i])) {
@@ -37,8 +41,7 @@ app.post('/', function(request, response) {
             }
         }
     }
-    //writing valid response
-    //response.status(200).json({ "response": filteredResult });
+    //writing valid response    
     response.status(200);
     response.send(JSON.stringify({"response": shows}));
 });
