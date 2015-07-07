@@ -1,0 +1,27 @@
+{
+  "name": "MI9-WebserviceTest-By-Kalpana",
+  "version": "0.12.6",
+  "description": "MI9 Test Webservice for code chalange - Developed By Kalpana",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "~4.9.x",
+    "body-parser": "~1.13.2"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/mi9-webservicetest-by-kalpana.git"
+  },
+  "keywords": [
+    "MI9",
+    "WebService",
+    "Kalpana"
+  ],
+  "license": "MIT"
+}
